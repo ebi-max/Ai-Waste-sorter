@@ -1,0 +1,11 @@
+This is a placeholder for the trained waste classification model.
+
+Please replace this file with your actual model:
+waste_classifier.h5
+
+Ensure the model is a TensorFlow/Keras .h5 file trained to classify:
+- Plastic
+- Paper
+- Metal
+- Glass
+- Organic
