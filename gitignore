@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Models
+models/*.h5
+models/*.tflite
+
+# Streamlit cache
+.streamlit/
+
+# Temporary files
+*.tmp
+*.log
