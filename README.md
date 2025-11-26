@@ -1,10 +1,10 @@
-AI WASTE SORTER 
+AI WASTE SORTER
 
 AI Waste Sorter is an open-source machine learning tool that classifies waste from images to support recycling and sustainability. Built for the Loubby AI Hackathon, it includes a Streamlit app, trained model, and all files required for testing and deployment.
 
 
 
-🌍 PROJECT OVERVIEW 
+🌍 PROJECT OVERVIEW
 
 AI Waste Sorter is an AI-powered environmental solution that uses deep learning to automatically classify waste into categories such as plastic, paper, metal, glass, and organic.
 It promotes recycling, reduces landfill pressure, and supports clean, sustainable waste management practices.
@@ -13,24 +13,18 @@ This project is fully open-source and structured to meet all Loubby AI Hackathon
 
 
 
-🚀 FEATURES 
+🚀 FEATURES
 
 ♻️ AI waste classification using a trained ML model
-
 📷 Upload or capture images for instant prediction
-
 🌐 Streamlit web interface for easy interaction
-
 📁 Organized, open-source repo with models and assets
-
 📄 MIT License for open reuse
-
 🌱 Built for Environment & Sustainability Track
 
 
 
-
-📁 PROJECT STRUCTURE 
+📁 PROJECT STRUCTURE
 
 /ai-waste-sorter
 ├── app.py
@@ -44,7 +38,7 @@ This project is fully open-source and structured to meet all Loubby AI Hackathon
 
 
 
-🧠 HOW IT WORKS 
+🧠 HOW IT WORKS
 
 1. User uploads a waste image
 
@@ -60,64 +54,44 @@ This project is fully open-source and structured to meet all Loubby AI Hackathon
 
 
 
+📦 INSTALLATION & SETUP
 
-📦 Installation & Setup
+1. Clone the repository:
 
-1. Clone the repository
 
-git clone https://github.com/ebi-max/Ai waste sorter.git
-cd Ai waste sorter
+git clone https://github.com/ebi-max/ai-waste-sorter.git
+cd ai-waste-sorter
 
-2. Install dependencies
+2. Install dependencies:
+
 
 pip install -r requirements.txt
 
-3. Run the app
+3. Run the app:
+
 
 streamlit run app.py
 
 
-
-🌐 Deployment (Streamlit Cloud)
+🌐 DEPLOYMENT (Streamlit Cloud)
 
 1. Push your repo to GitHub
 
 
-2. Go to https://share.streamlit.io
+2. Go to Streamlit Cloud
 
 
 3. Connect your GitHub repository
 
 
-4. Select app.py
+4. Select app.py and deploy
 
 
-5. Deploy
+Live App URL for Hackathon Submission: https://ai-waste-sorter.stream
+YouTube Demo URL: https://youtube.com/shorts/RJam4XtU1-o?si=FyQDpRdk36TiSN_W
 
 
-
-Streamlit will provide your public URL, required for hackathon submission.
-
-
-
-📹 DEMO VIDEO REQUIREMENTS 
-
-Hackathon requires:
-
-Maximum 3 minutes
-
-Must show:
-✔ App interface
-✔ Uploading an image
-✔ Prediction result
-✔ Anything unique (model, sustainability impact, etc.)
-
-
-If you want, I can write your 3-minute demo script.
-
-
-
-🧪 MODEL DETAILS 
+🧪 MODEL DETAILS
 
 Framework: TensorFlow / Keras
 
@@ -140,8 +114,7 @@ Organic
 
 
 
-
-📈 Use Cases
+📈 USE CASES
 
 Waste sorting centers
 
@@ -157,13 +130,13 @@ NGOs promoting sustainability
 
 
 
-📝 HACKATHON COMPLIANCE CHECKLIST 
+📝 HACKATHON COMPLIANCE CHECKLIST
 
-REQUIREMENT	STATUS 
+REQUIREMENT	STATUS
 
 Public GitHub repo	✔️
 Open-source license	✔️ MIT
-Public hosted URL	✔️ Streamlit Cloud
+Public hosted URL	✔️ Live App
 Demo video	⏳ To record
 Source code included	✔️
 Clear README	✔️ Done
@@ -171,22 +144,25 @@ Category specified	✔️ Environment & Sustainability
 
 
 
-📄 LICENCE 
+📄 LICENSE
 
 This project is licensed under the MIT License.
 You are free to use, modify, and distribute it.
 
 
 
-🤝 CONTRIBUTING 
+🤝 CONTRIBUTING
 
 Contributions are welcome!
 Feel free to open issues or submit pull requests.
 
 
+👤 AUTHOR
 
-👤 AUTHOR 
-
-EBIEME BASSEY 
+EBIEME BASSEY
 Built for the Loubby AI Hackathon
 GitHub: https://github.com/ebi-max
+
+Live App URL: https://ai-waste-sorter.stream
+YouTube Demo URL: https://youtube.com/shorts/RJam4XtU1-o?si=FyQDpRdk36TiSN_W
+
