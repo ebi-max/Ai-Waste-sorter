@@ -1,11 +1,11 @@
-This is a placeholder for the trained waste classification model.
+This file is a placeholder for the AI waste classifier model.
 
-Please replace this file with your actual model:
-waste_classifier.h5
+Instructions to integrate real AI model:
 
-Ensure the model is a TensorFlow/Keras .h5 file trained to classify:
-- Plastic
-- Paper
-- Metal
-- Glass
-- Organic
+1. Train your waste classification model using your preferred framework (e.g., TensorFlow, PyTorch, scikit-learn).
+2. Save the trained model, e.g., waste_classifier.pkl.
+3. In app.py, replace the placeholder section in the "Sort Waste" page:
+   - Load your model at the top of the file
+   - Preprocess uploaded images to match model input
+   - Use model.predict() to get predicted class
+   - Display predicted class and confidence in the app
