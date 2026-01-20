@@ -24,8 +24,8 @@ authenticator = stauth.Authenticate(
     config['cookie']['expiry_days'],
 )
 
-# ===== LOGIN =====
-name, authentication_status, username = authenticator.login("Login", "main")
+# ===== LOGIN (Sidebar) =====
+name, authentication_status, username = authenticator.login("Login", "sidebar")
 
 # ===== INITIALIZE SESSION STATE =====
 if "points" not in st.session_state:
@@ -47,6 +47,8 @@ def update_points(points_earned):
 if authentication_status:
     user_info = config['credentials']['usernames'][username]
     role = user_info.get('role', 'user')
+
+    # Logout button in sidebar
     authenticator.logout("Logout", "sidebar")
     st.sidebar.success(f"Welcome {name} ({role})")
 
