@@ -1,95 +1,124 @@
 import streamlit as st
-import numpy as np
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
+import pandas as pd
 from PIL import Image
 
-# -------------------------------
-# Waste labels
-# -------------------------------
-CLASS_NAMES = ["Plastic", "Paper", "Metal", "Glass", "Organic"]
+# ===== PAGE CONFIG =====
+st.set_page_config(page_title="AI Waste Sorter", layout="wide")
 
-st.set_page_config(
-    page_title="AI Waste Sorter",
-    page_icon="♻️",
-    layout="centered"
+# ===== FOOTER / BRANDING =====
+def add_footer():
+    st.markdown("<hr><center>Powered by <b>Ebiklean Global</b></center>", unsafe_allow_html=True)
+add_footer()
+
+# ===== LOAD USERS =====
+with open('auth/users.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
 )
 
-st.title("♻️ AI Waste Sorter")
-st.write("Upload a waste image and let AI classify it for proper recycling.")
+# ===== LOGIN =====
+name, authentication_status, username = authenticator.login("Login", "main")
 
+# ===== INITIALIZE SESSION STATE =====
+if "points" not in st.session_state:
+    st.session_state.points = 0
+if "badge" not in st.session_state:
+    st.session_state.badge = "Novice Recycler"
 
-# -------------------------------
-# Simple heuristic "model"
-# (no TensorFlow / PyTorch needed)
-# -------------------------------
-def preprocess_image(img: Image.Image) -> np.ndarray:
-    img = img.resize((224, 224))
-    arr = np.array(img).astype("float32") / 255.0
-    return arr
+# ===== POINTS & BADGES =====
+def update_points(points_earned):
+    st.session_state.points += points_earned
+    if st.session_state.points >= 20:
+        st.session_state.badge = "Eco Hero 🌟"
+    elif st.session_state.points >= 10:
+        st.session_state.badge = "Recycler Pro 🏆"
+    elif st.session_state.points >= 5:
+        st.session_state.badge = "Eco Starter 🌱"
 
+# ===== AUTHENTICATED USER =====
+if authentication_status:
+    user_info = config['credentials']['usernames'][username]
+    role = user_info.get('role', 'user')
+    authenticator.logout("Logout", "sidebar")
+    st.sidebar.success(f"Welcome {name} ({role})")
 
-def pseudo_ai_predict(img_arr: np.ndarray) -> tuple[str, float]:
-    """
-    Very lightweight 'AI-style' classifier using color heuristics.
-    This is NOT a trained model, but it behaves like one for demo purposes.
-    """
+    # ===== SIDEBAR MENU =====
+    selected = st.sidebar.radio("Menu", ["Home","Dashboard","Sort Waste","AI Insights","Community","Admin"])
 
-    # Average color channels
-    mean_color = img_arr.mean(axis=(0, 1))  # [R, G, B]
-    r, g, b = mean_color
-    brightness = img_arr.mean()
+    # ---------- HOME ----------
+    if selected == "Home":
+        st.subheader("Recent Activity")
+        st.write("Plastic ♻️ - 92% confidence")
+        st.write("Organic 🍌 - 88% confidence")
 
-    # Simple rules
-    if brightness < 0.25:
-        predicted = "Metal"          # dark, reflective-type images
-    elif g > r and g > b:
-        predicted = "Organic"        # more green/brown
-    elif b > r and b > g:
-        predicted = "Plastic"        # blue-ish packaging / bottles
-    elif r > g and r > b and brightness > 0.6:
-        predicted = "Plastic"        # bright red/colored plastic
-    elif brightness > 0.8:
-        predicted = "Paper"          # very light / white-ish
-    else:
-        predicted = "Glass"          # fallback
+    # ---------- DASHBOARD ----------
+    elif selected == "Dashboard":
+        st.subheader("Waste Statistics")
+        df = pd.DataFrame({"Waste":["Plastic","Paper","Metal","Organic"],"Count":[450,300,200,295]})
+        st.bar_chart(df.set_index("Waste"))
+        col1,col2,col3,col4 = st.columns(4)
+        col1.metric("Total Sorted","1,245")
+        col2.metric("Recyclable","72%")
+        col3.metric("AI Accuracy","91%")
+        col4.metric("Active Users","128")
 
-    # Fake confidence for nicer UI
-    confidence = float(np.clip(0.7 + (brightness - 0.5), 0.5, 0.98) * 100)
-    return predicted, confidence
+    # ---------- SORT WASTE ----------
+    elif selected == "Sort Waste":
+        st.subheader("Upload Waste Image")
+        image = st.file_uploader("Choose image", type=["jpg","png"])
+        if image:
+            st.image(image,width=250)
 
+            # =========================
+            # PLACEHOLDER FOR AI MODEL
+            # =========================
+            predicted_class = "Plastic ♻️"  
+            confidence = 0.92
+            st.success(f"Detected: {predicted_class} ({confidence*100:.0f}%)")
 
-# -------------------------------
-# Image Upload
-# -------------------------------
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+            # ===== GAMIFICATION =====
+            points_earned = 1
+            update_points(points_earned)
+            st.info(f"Points earned: +{points_earned}")
+            st.success(f"Total Points: {st.session_state.points}")
+            st.success(f"Badge: {st.session_state.badge}")
 
-# -------------------------------
-# Prediction
-# -------------------------------
-if uploaded_file is not None:
-    image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    # ---------- AI INSIGHTS ----------
+    elif selected == "AI Insights":
+        st.subheader("Model Insights")
+        st.write("Accuracy: 91%")
+        st.write("Inference Time: 120ms")
+        st.write("Placeholder: You can add your AI metrics here")
 
-    st.write("Classifying...")
+    # ---------- COMMUNITY ----------
+    elif selected == "Community":
+        st.subheader("Community Feed & Leaderboard")
+        leaderboard = pd.DataFrame({
+            "User":["Ebieme","Jane","Mike"],
+            "Points":[st.session_state.points,8,12],
+            "Badge":[st.session_state.badge,"Eco Starter 🌱","Recycler Pro 🏆"]
+        })
+        st.table(leaderboard)
+        st.write("Ebieme: Sorted 15 plastics today ♻️")
+        st.write("Jane: Sorted 8 items ♻️")
 
-    processed_img = preprocess_image(image)
-    predicted_class, confidence = pseudo_ai_predict(processed_img)
+    # ---------- ADMIN ----------
+    elif selected == "Admin":
+        if role=="admin":
+            st.subheader("Admin Dashboard")
+            st.write("Manage users, view reports, download analytics")
+        else:
+            st.warning("Access Denied")
 
-    st.success(f"### 🗑 Waste Type: **{predicted_class}**")
-    st.info(f"Prediction Confidence: **{confidence:.2f}%**")
-
-    # -------------------------------
-    # Recycling Tips
-    # -------------------------------
-    tips = {
-        "Plastic": "Rinse plastic items and remove labels before recycling.",
-        "Paper": "Avoid recycling wet or dirty paper.",
-        "Metal": "Clean metal cans and separate aluminum from steel if possible.",
-        "Glass": "Sort glass by color and remove lids.",
-        "Organic": "Best used for composting or organic waste bins to reduce landfill waste."
-    }
-
-    st.write("### ♻️ Recycling Guide")
-    st.write(tips.get(predicted_class, "Dispose responsibly."))
-
-else:
-    st.warning("Please upload an image to begin classification.")
+elif authentication_status is False:
+    st.error("Invalid email or password")
+elif authentication_status is None:
+    st.warning("Please login")
