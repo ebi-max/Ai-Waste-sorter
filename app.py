@@ -5,6 +5,9 @@ from yaml.loader import SafeLoader
 import pandas as pd
 from PIL import Image
 
+# ===== DEMO MODE SWITCH =====
+DEMO_MODE = True
+
 # ===== PAGE CONFIG =====
 st.set_page_config(page_title="AI Waste Sorter", layout="wide")
 
@@ -25,7 +28,12 @@ authenticator = stauth.Authenticate(
 )
 
 # ===== LOGIN (Sidebar) =====
-name, authentication_status, username = authenticator.login("Login", "main")
+if DEMO_MODE:
+    authentication_status = True
+    name = "Ebieme Bassey (Demo)"
+    username = "ebieme"
+else:
+    name, authentication_status, username = authenticator.login("Login", "main")
 
 # ===== INITIALIZE SESSION STATE =====
 if "points" not in st.session_state:
@@ -49,6 +57,7 @@ if authentication_status:
     role = user_info.get('role', 'user')
 
     # Logout button in sidebar
+    if not DEMO_MODE:
     authenticator.logout("Logout", "sidebar")
     st.sidebar.success(f"Welcome {name} ({role})")
 
