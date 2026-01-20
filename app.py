@@ -56,6 +56,16 @@ if authentication_status:
     user_info = config['credentials']['usernames'][username]
     role = user_info.get('role', 'user')
 
+    if not DEMO_MODE:
+        authenticator.logout("Logout", "sidebar")
+
+    st.sidebar.success(f"Welcome {name} ({role})")
+
+    selected = st.sidebar.radio(
+        "Menu",
+        ["Home","Dashboard","Sort Waste","AI Insights","Community","DeepTech Portfolio","Admin"]
+    )
+
     # Logout button in sidebar
     if not DEMO_MODE:
     authenticator.logout("Logout", "sidebar")
