@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    ebieme:
+      email: ebiemebassey887@gmail.com
+      name: Ebieme Bassey
+      password: "$2b$12$EXAMPLEHASHEDPASSWORD"
+      role: admin
+    jane:
+      email: jane@example.com
+      name: Jane Doe
+      password: "$2b$12$ANOTHERHASHEDPASSWORD"
+      role: user
+
+cookie:
+  expiry_days: 7
+  key: waste_sorter_key
+  name: waste_sorter_auth
