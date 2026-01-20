@@ -1,12 +1,24 @@
-credentials:
-  usernames:
-    ebieme:
-      name: Ebieme Bassey
-      role: admin
-      email: ebieme@ebiklean.com
-      password: "$2b$12$PLACEHOLDERHASH"
+# ===== AUTH / DEMO ACCESS =====
+if DEMO_MODE:
+    authentication_status = True
+    name = "Ebieme Bassey (Demo)"
+    username = "ebieme"
 
-cookie:
-  name: ebiklean_cookie
-  key: ebiklean_secret_key
-  expiry_days: 30
+if authentication_status:
+    user_info = config['credentials']['usernames'].get(username, {})
+    role = user_info.get("role", "admin")
+
+    st.sidebar.success(f"Welcome {name} ({role})")
+
+    selected = st.sidebar.radio(
+        "Menu",
+        [
+            "Home",
+            "Dashboard",
+            "Sort Waste",
+            "AI Insights",
+            "Community",
+            "DeepTech Portfolio",
+            "Admin"
+        ]
+    )
