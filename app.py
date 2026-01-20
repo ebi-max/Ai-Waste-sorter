@@ -25,7 +25,7 @@ authenticator = stauth.Authenticate(
 )
 
 # ===== LOGIN (Sidebar) =====
-name, authentication_status, username = authenticator.login("Login", "sidebar")
+name, authentication_status, username = authenticator.login("Login", "main")
 
 # ===== INITIALIZE SESSION STATE =====
 if "points" not in st.session_state:
