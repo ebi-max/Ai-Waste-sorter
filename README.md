@@ -1,4 +1,4 @@
-# AI Waste Sorter ♻️
+# AI WASTE SORTER ♻️
 **Powered by Ebiklean Global**
 
 Smart AI for Sustainable Waste Management  
@@ -6,7 +6,8 @@ Built by **Ebieme Bassey** – DeepTech Innovator
 
 
 
-## Table of Contents
+ TABLE OF CONTENTS 
+
 - [Overview](#overview)
 - [Features](#features)
 - [Technology Stack](#technology-stack)
@@ -18,14 +19,14 @@ Built by **Ebieme Bassey** – DeepTech Innovator
 
 
 
-## OVERVIEW 
+ OVERVIEW 
 
 AI Waste Sorter is a mobile-friendly web application designed to assist individuals, communities, and waste management organizations in **identifying and classifying waste using AI**.  
 The platform combines **computer vision, analytics dashboards, and gamification** to improve recycling rates and environmental sustainability.
 
 
 
-## FEATURES 
+ FEATURES 
 
 - **Welcome & Branding:** Professional welcome screen with “Powered by Ebiklean Global” and metrics.  
 - **Dashboard:** Waste sorting statistics, AI accuracy, total items sorted, active users.  
@@ -37,7 +38,7 @@ The platform combines **computer vision, analytics dashboards, and gamification*
 
 
 
-## TECHNOLOGY STACK 
+  TECHNOLOGY STACK 
 
 - **Frontend & Backend:** Python + Streamlit  
 - **Data Analytics:** Pandas, Streamlit charts  
@@ -47,7 +48,7 @@ The platform combines **computer vision, analytics dashboards, and gamification*
 
 
 
-## USAGE 
+  USAGE 
 
 1. Visit the https://ai-waste-sorter.streamlit.app/  
 
@@ -61,7 +62,7 @@ The platform combines **computer vision, analytics dashboards, and gamification*
 3. Click **“Get Started”** on the welcome screen to begin.
 
 
-## MONETISATION & IMPACT 
+  MONETISATION & IMPACT 
 **MONETISATION STRATEGIES:
 
 - Licensing to waste management companies  
@@ -78,7 +79,7 @@ The platform combines **computer vision, analytics dashboards, and gamification*
 
 
 
-## DEMO MODE 
+  DEMO MODE 
 
 - Demo Mode allows anyone to explore the app without authentication.  
 - All features remain visible for evaluation purposes.  
@@ -86,12 +87,12 @@ The platform combines **computer vision, analytics dashboards, and gamification*
 
 
 
-## LICENCE 
+  LICENCE 
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
-## CONTACT 
+  CONTACT 
 
 **Founder:** Ebieme Bassey  
 
