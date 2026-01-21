@@ -5,11 +5,46 @@ from yaml.loader import SafeLoader
 import pandas as pd
 from PIL import Image
 
+# ===== BRAND CONFIG =====
+APP_NAME = "AI Waste Sorter"
+TAGLINE = "Smart AI for Sustainable Waste Management"
+POWERED_BY = "Ebiklean Global"
+
 # ===== DEMO MODE SWITCH =====
 DEMO_MODE = True
 
 # ===== PAGE CONFIG =====
 st.set_page_config(page_title="AI Waste Sorter", layout="wide")
+
+# ===== WELCOME / HERO SECTION =====
+def show_welcome():
+    st.markdown(
+        f"""
+        <div style="
+            padding:25px;
+            border-radius:14px;
+            background:linear-gradient(90deg,#0d6efd,#198754);
+            color:white;
+            text-align:center;
+            margin-bottom:25px;
+        ">
+            <h1>{APP_NAME} ♻️</h1>
+            <h4>Powered by <b>{POWERED_BY}</b></h4>
+            <p>{TAGLINE}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Items Sorted", "1,245")
+    col2.metric("AI Accuracy", "91%")
+    col3.metric("CO₂ Saved", "2.3 Tons")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    if st.button("🚀 Get Started"):
+        st.success("Select a feature from the sidebar to begin")
 
 # ===== FOOTER / BRANDING =====
 def add_footer():
@@ -53,6 +88,7 @@ def update_points(points_earned):
 
 # ===== AUTHENTICATED USER =====
 if authentication_status:
+show_welcome()
     user_info = config['credentials']['usernames'][username]
     role = user_info.get('role', 'user')
 
