@@ -5,6 +5,8 @@ if DEMO_MODE:
     username = "ebieme"
 
 if authentication_status:
+    show_welcome()
+
     user_info = config['credentials']['usernames'].get(username, {})
     role = user_info.get("role", "admin")
 
