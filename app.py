@@ -88,7 +88,7 @@ def update_points(points_earned):
 
 # ===== AUTHENTICATED USER =====
 if authentication_status:
-show_welcome()
+    show_welcome()
     user_info = config['credentials']['usernames'][username]
     role = user_info.get('role', 'user')
 
