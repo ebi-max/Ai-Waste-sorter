@@ -1,110 +1,115 @@
-# AI WASTE SORTER ♻️
-**Powered by Ebiklean Global**
+# 🌍 Ebiklean Global – AI Solutions Portfolio
 
-Smart AI for Sustainable Waste Management  
-Built by **Ebieme Bassey** – DeepTech Innovator
+Ebiklean Global is a technology-driven initiative focused on building lightweight, accessible, and impact-oriented AI applications that address real-world challenges in sustainability, health awareness, and cybersecurity education.
 
+All solutions are designed to run efficiently on low-resource devices and are deployable via the web using modern open-source technologies.
 
+---
 
- TABLE OF CONTENTS 
+## 🚀 AI Applications
 
-- [Overview](#overview)
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Usage](#usage)
-- [Monetization & Impact](#monetization--impact)
-- [Demo Mode](#demo-mode)
-- [License](#license)
-- [Contact](#contact)
+### ♻️ AI Waste Sorter
+An AI-powered waste classification and recycling awareness tool that helps users identify waste types and promote proper disposal practices.
 
+**Use Cases**
+- Environmental awareness
+- Waste management education
+- Community recycling programs
 
+---
 
- OVERVIEW 
+### 🩺 AI Health Checker
+A lightweight AI-assisted health awareness application that provides preliminary health risk insights based on symptom inputs.
 
-AI Waste Sorter is a mobile-friendly web application designed to assist individuals, communities, and waste management organizations in **identifying and classifying waste using AI**.  
-The platform combines **computer vision, analytics dashboards, and gamification** to improve recycling rates and environmental sustainability.
+**Use Cases**
+- Health awareness campaigns
+- NGO and public health programs
+- Corporate wellness initiatives
 
+⚠️ *This application does not provide medical diagnosis.*
 
+---
 
- FEATURES 
+### 🔐 AI CyberSafe Checker
+An AI-powered cybersecurity awareness tool designed to help users understand digital risks and improve safe online behavior.
 
-- **Welcome & Branding:** Professional welcome screen with “Powered by Ebiklean Global” and metrics.  
-- **Dashboard:** Waste sorting statistics, AI accuracy, total items sorted, active users.  
-- **Waste Sorting:** Upload images to detect waste type (Plastic, Paper, Metal, Organic).  
-- **AI Insights:** Model accuracy, inference time, placeholder for future analytics.  
-- **Community & Leaderboard:** Track user points, badges, and gamification achievements.  
-- **DeepTech Portfolio:** Showcase your project, technology, and monetization plan.  
-- **Demo Mode:** Allows reviewers to explore the app without login credentials.
+**Use Cases**
+- Cybersecurity education
+- SME digital safety awareness
+- School and youth training programs
 
+⚠️ *This tool provides awareness-level guidance only.*
 
+---
 
-  TECHNOLOGY STACK 
+## 📊 Features Across All Apps
 
-- **Frontend & Backend:** Python + Streamlit  
-- **Data Analytics:** Pandas, Streamlit charts  
-- **AI/ML:** Computer Vision (CNN placeholder)  
-- **Deployment:** Streamlit Cloud (mobile-friendly)  
-- **Version Control:** GitHub  
+- Mobile-friendly Streamlit interface  
+- Simple login system  
+- AI-assisted or rule-based inference  
+- Dashboard for impact and investor metrics  
+- DeepTech portfolio-ready and monetizable  
+- Lightweight and phone-compatible  
 
+---
 
+## 🛠️ Technology Stack
 
-  USAGE 
+- Python  
+- Streamlit  
+- TensorFlow  
+- Pandas  
+- GitHub  
+- Rule-based & AI-assisted inference  
 
-1. Visit the https://ai-waste-sorter.streamlit.app/  
+---
 
-2. Explore the sidebar menu:  
-   - Home → Overview & recent activity  
-   - Dashboard → Analytics & metrics  
-   - Sort Waste → Upload images for AI classification  
-   - AI Insights → Model performance placeholder  
-   - Community → Leaderboard & gamification  
-   - DeepTech Portfolio → Project & monetization showcase  
-3. Click **“Get Started”** on the welcome screen to begin.
+## 🎓 Certifications & Training
 
+- **No-Code / Low-Code AI Automation Certificate**  
+- **Certificate of Participation – Microsoft Power BI Data Analyst Supported Program**  
+- **Cisco Networking Academy**  
+  - English for IT 1  
+  - English for IT 2  
 
-  MONETISATION & IMPACT 
-**MONETISATION STRATEGIES:
+---
 
-- Licensing to waste management companies  
-- Government & NGO contracts  
-- API access for smart bins  
-- Data analytics & insights services  
+## 🎓 Education
 
-**IMPACT:
+**Bachelor of Science (BSc) in Computer Science**  
+*University of the People*  
+*(In Progress)*
 
-- Increased recycling rates  
-- Environmental sustainability  
-- Youth engagement via gamification  
-- Ready for DeepTech showcases and 3MTT submissions
+---
 
+## 💡 Monetization & Sustainability
 
+- NGO and government partnerships  
+- Corporate subscriptions  
+- Training and awareness programs  
+- White-label deployment for organizations  
 
-  DEMO MODE 
+---
 
-- Demo Mode allows anyone to explore the app without authentication.  
-- All features remain visible for evaluation purposes.  
-- Login and authentication will be implemented later for production use.
+## 👤 Founder
 
+**Name:** Ebieme Bassey  
+**Organization:** Ebiklean Global  
+**Focus Areas:**  
+- Artificial Intelligence  
+- Sustainability  
+- Health Awareness  
+- Cybersecurity Education  
 
+---
 
-  LICENCE 
+## ⚠️ Disclaimer
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+All applications are developed for educational, awareness, and decision-support purposes only. They do not replace professional medical, environmental, or cybersecurity services.
 
+---
 
-  CONTACT 
-
-**Founder:** Ebieme Bassey  
-
-**Organization:** Ebiklean Global
-
-**Email: ebikleanintegratedservices@gmail.com 
-
-**LinkedIn / Portfolio:** https://www.linkedin.com/in/ebieme-bassey-9857272a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app
-
-GitHub: https://github.com/ebi-max
-
-Live App URL: https://ai-waste-sorter.stream
-
-YouTube Demo URL: https://youtube.com/shorts/RJam4XtU1-o?si=FyQDpRdk36TiSN_W
-
+## 🔗 Links (Add live app & repo links here)
+- AI Waste Sorter: [Link here]  
+- AI Health Checker: [Link here]  
+- AI CyberSafe Checker: [Link here]
