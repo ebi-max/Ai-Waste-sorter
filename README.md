@@ -49,7 +49,8 @@ The platform combines **computer vision, analytics dashboards, and gamification*
 
 ## USAGE 
 
-1. Visit the [Streamlit App](#) (link to your deployed app).  
+1. Visit the https://ai-waste-sorter.streamlit.app/  
+
 2. Explore the sidebar menu:  
    - Home → Overview & recent activity  
    - Dashboard → Analytics & metrics  
