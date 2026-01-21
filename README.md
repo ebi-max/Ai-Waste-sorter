@@ -1,166 +1,95 @@
-AI WASTE SORTER
+# AI Waste Sorter ♻️
+**Powered by Ebiklean Global**
+
+Smart AI for Sustainable Waste Management  
+Built by **Ebieme Bassey** – DeepTech Innovator
+
+---
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Usage](#usage)
+- [Monetization & Impact](#monetization--impact)
+- [Demo Mode](#demo-mode)
+- [License](#license)
+- [Contact](#contact)
+
+---
+
+## Overview
+AI Waste Sorter is a mobile-friendly web application designed to assist individuals, communities, and waste management organizations in **identifying and classifying waste using AI**.  
+The platform combines **computer vision, analytics dashboards, and gamification** to improve recycling rates and environmental sustainability.
+
+---
+
+## Features
+- **Welcome & Branding:** Professional welcome screen with “Powered by Ebiklean Global” and metrics.  
+- **Dashboard:** Waste sorting statistics, AI accuracy, total items sorted, active users.  
+- **Waste Sorting:** Upload images to detect waste type (Plastic, Paper, Metal, Organic).  
+- **AI Insights:** Model accuracy, inference time, placeholder for future analytics.  
+- **Community & Leaderboard:** Track user points, badges, and gamification achievements.  
+- **DeepTech Portfolio:** Showcase your project, technology, and monetization plan.  
+- **Demo Mode:** Allows reviewers to explore the app without login credentials.
+
+---
+
+## Technology Stack
+- **Frontend & Backend:** Python + Streamlit  
+- **Data Analytics:** Pandas, Streamlit charts  
+- **AI/ML:** Computer Vision (CNN placeholder)  
+- **Deployment:** Streamlit Cloud (mobile-friendly)  
+- **Version Control:** GitHub  
+
+---
+
+## Usage
+1. Visit the [Streamlit App](#) (link to your deployed app).  
+2. Explore the sidebar menu:  
+   - Home → Overview & recent activity  
+   - Dashboard → Analytics & metrics  
+   - Sort Waste → Upload images for AI classification  
+   - AI Insights → Model performance placeholder  
+   - Community → Leaderboard & gamification  
+   - DeepTech Portfolio → Project & monetization showcase  
+3. Click **“Get Started”** on the welcome screen to begin.
+
+---
+
+## Monetization & Impact
+**Monetization Strategies:**
+- Licensing to waste management companies  
+- Government & NGO contracts  
+- API access for smart bins  
+- Data analytics & insights services  
+
+**Impact:**
+- Increased recycling rates  
+- Environmental sustainability  
+- Youth engagement via gamification  
+- Ready for DeepTech showcases and 3MTT submissions
+
+---
+
+## Demo Mode
+- Demo Mode allows anyone to explore the app without authentication.  
+- All features remain visible for evaluation purposes.  
+- Login and authentication will be implemented later for production use.
+
+---
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+**Founder:** Ebieme Bassey  
+**Organization:** Ebiklean Global  
+**Email:** ebikleanintegratedservices@gmail.com 
+**LinkedIn / Portfolio:** [Add your link here]
 
-AI Waste Sorter is an open-source machine learning tool that classifies waste from images to support recycling and sustainability. Built for the Loubby AI Hackathon, it includes a Streamlit app, trained model, and all files required for testing and deployment.
-
-
-
-🌍 PROJECT OVERVIEW
-
-AI Waste Sorter is an AI-powered environmental solution that uses deep learning to automatically classify waste into categories such as plastic, paper, metal, glass, and organic.
-It promotes recycling, reduces landfill pressure, and supports clean, sustainable waste management practices.
-
-This project is fully open-source and structured to meet all Loubby AI Hackathon submission requirements.
-
-
-
-🚀 FEATURES
-
-♻️ AI waste classification using a trained ML model
-📷 Upload or capture images for instant prediction
-🌐 Streamlit web interface for easy interaction
-📁 Organized, open-source repo with models and assets
-📄 MIT License for open reuse
-🌱 Built for Environment & Sustainability Track
-
-
-
-📁 PROJECT STRUCTURE
-
-/ai-waste-sorter
-├── app.py
-├── requirements.txt
-├── README.md
-├── LICENSE
-├── /models
-│   └── waste_classifier.h5
-└── /assets
-    └── icons, sample images, etc.
-
-
-
-🧠 HOW IT WORKS
-
-1. User uploads a waste image
-
-
-2. The image is preprocessed into the format the model expects
-
-
-3. The ML model predicts the waste category
-
-
-4. The result is returned with confidence level and recycling guidance
-
-
-
-
-📦 INSTALLATION & SETUP
-
-1. Clone the repository:
-
-
-git clone https://github.com/ebi-max/ai-waste-sorter.git
-cd ai-waste-sorter
-
-2. Install dependencies:
-
-
-pip install -r requirements.txt
-
-3. Run the app:
-
-
-streamlit run app.py
-
-
-🌐 DEPLOYMENT (Streamlit Cloud)
-
-1. Push your repo to GitHub
-
-
-2. Go to Streamlit Cloud
-
-
-3. Connect your GitHub repository
-
-
-4. Select app.py and deploy
-
-
-Live App URL for Hackathon Submission: https://ai-waste-sorter.stream
-YouTube Demo URL: https://youtube.com/shorts/RJam4XtU1-o?si=FyQDpRdk36TiSN_W
-
-
-🧪 MODEL DETAILS
-
-Framework: TensorFlow / Keras
-
-Type: CNN image classifier
-
-Trained on: curated dataset of waste categories
-
-Output classes:
-
-Plastic
-
-Paper
-
-Metal
-
-Glass
-
-Organic
-
-
-
-
-📈 USE CASES
-
-Waste sorting centers
-
-Environmental agencies
-
-Schools/universities
-
-Smart city dashboards
-
-Household recycling
-
-NGOs promoting sustainability
-
-
-
-📝 HACKATHON COMPLIANCE CHECKLIST
-
-REQUIREMENT	STATUS
-
-Public GitHub repo	✔️
-Open-source license	✔️ MIT
-Public hosted URL	✔️ Live App
-Demo video	⏳ To record
-Source code included	✔️
-Clear README	✔️ Done
-Category specified	✔️ Environment & Sustainability
-
-
-
-📄 LICENSE
-
-This project is licensed under the MIT License.
-You are free to use, modify, and distribute it.
-
-
-
-🤝 CONTRIBUTING
-
-Contributions are welcome!
-Feel free to open issues or submit pull requests.
-
-
-👤 AUTHOR
-
-EBIEME BASSEY
-Built for the Loubby AI Hackathon
 GitHub: https://github.com/ebi-max
 
 Live App URL: https://ai-waste-sorter.stream
