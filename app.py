@@ -1,202 +1,156 @@
 import streamlit as st
-import pandas as pd
+from datetime import datetime
 
-# =========================
-# PAGE CONFIG
-# =========================
+# ---------------- PAGE CONFIG ----------------
 st.set_page_config(
     page_title="AI Waste Sorter",
     page_icon="♻️",
-    layout="wide"
+    layout="centered"
 )
 
-# =========================
-# BRAND CONFIG
-# =========================
-APP_NAME = "AI Waste Sorter"
-TAGLINE = "Smart AI for Sustainable Waste Management"
-POWERED_BY = "Ebiklean Global"
-FOUNDER = "Ebieme Bassey"
+# ---------------- SESSION STATE ----------------
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
 
-# =========================
-# WELCOME / HERO SECTION
-# =========================
-def show_welcome():
-    st.markdown(
-        f"""
-        <div style="
-            padding:25px;
-            border-radius:14px;
-            background:linear-gradient(90deg,#0d6efd,#198754);
-            color:white;
-            text-align:center;
-            margin-bottom:25px;
-        ">
-            <h1>{APP_NAME} ♻️</h1>
-            <h4>Powered by <b>{POWERED_BY}</b></h4>
-            <p>{TAGLINE}</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+if "name" not in st.session_state:
+    st.session_state.name = ""
 
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Items Sorted", "1,245")
-    col2.metric("AI Accuracy", "91%")
-    col3.metric("CO₂ Saved", "2.3 Tons")
+if "scan_count" not in st.session_state:
+    st.session_state.scan_count = 0
 
-    st.markdown("<br>", unsafe_allow_html=True)
+if "scan_results" not in st.session_state:
+    st.session_state.scan_results = []
 
-    if st.button("🚀 Get Started"):
-        st.success("Use the sidebar to explore the app")
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
 
-# =========================
-# DEMO MODE (NO AUTH)
-# =========================
-authentication_status = True
-name = f"{FOUNDER} (Demo)"
-role = "Admin"
+if "stories" not in st.session_state:
+    st.session_state.stories = [
+        {"user": "Alice", "post": "Recycled 5 plastic bottles today! ♻️"},
+        {"user": "Bob", "post": "Learned how to separate organic waste."},
+    ]
 
-# =========================
-# MAIN APP
-# =========================
-if authentication_status:
-    show_welcome()
+# ---------------- LOGIN SCREEN ----------------
+if not st.session_state.logged_in:
+    st.title("♻️ AI Waste Sorter")
+    st.caption("Sort your waste and learn proper disposal methods")
+    st.markdown("**Powered by Ebiklean Global**")
 
-    st.sidebar.success(f"Welcome {name} ({role})")
+    name = st.text_input("Enter your name")
 
-    selected = st.sidebar.radio(
-        "Menu",
-        [
-            "Home",
-            "Dashboard",
-            "Sort Waste",
-            "AI Insights",
-            "Community",
-            "DeepTech Portfolio"
-        ]
-    )
+    if st.button("Login"):
+        if name.strip() == "":
+            st.warning("Please enter your name to continue.")
+        else:
+            st.session_state.name = name
+            st.session_state.logged_in = True
+            st.rerun()
 
-    # -------------------------
-    # HOME
-    # -------------------------
-    if selected == "Home":
-        st.subheader("Recent Activity")
-        st.write("♻️ Plastic detected – 92% confidence")
-        st.write("🍌 Organic waste detected – 88% confidence")
-        st.info("AI Waste Sorter is running smoothly.")
+# ---------------- MAIN APP ----------------
+else:
+    st.sidebar.success(f"Logged in as {st.session_state.name}")
+    if st.sidebar.button("Logout"):
+        st.session_state.logged_in = False
+        st.session_state.scan_count = 0
+        st.session_state.scan_results = []
+        st.session_state.chat_history = []
+        st.rerun()
 
-    # -------------------------
-    # DASHBOARD
-    # -------------------------
-    elif selected == "Dashboard":
-        st.subheader("Waste Sorting Dashboard")
+    st.title("♻️ AI Waste Sorter")
+    st.markdown("**Powered by Ebiklean Global**")
 
-        df = pd.DataFrame({
-            "Waste Type": ["Plastic", "Paper", "Metal", "Organic"],
-            "Count": [450, 300, 200, 295]
-        })
+    # ---------------- UPLOAD & CLASSIFY ----------------
+    st.subheader("Upload Waste Image for Classification")
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-        st.bar_chart(df.set_index("Waste Type"))
-
-        col1, col2, col3, col4 = st.columns(4)
-        col1.metric("Total Sorted", "1,245")
-        col2.metric("Recyclable Rate", "72%")
-        col3.metric("AI Accuracy", "91%")
-        col4.metric("Active Users", "128")
-
-    # -------------------------
-    # SORT WASTE
-    # -------------------------
-    elif selected == "Sort Waste":
-        st.subheader("Upload Waste Image")
-
-        image = st.file_uploader("Choose an image (jpg or png)", type=["jpg", "png"])
-
-        if image:
-            st.image(image, width=300)
-
-            # Placeholder AI prediction
-            predicted_class = "Plastic ♻️"
-            confidence = 0.92
-
-            st.success(f"Detected: {predicted_class}")
-            st.info(f"Confidence: {confidence * 100:.0f}%")
-
-            st.toast("✅ Item successfully sorted!")
-
-    # -------------------------
-    # AI INSIGHTS
-    # -------------------------
-    elif selected == "AI Insights":
-        st.subheader("AI Model Insights")
-        st.write("Model Accuracy: 91%")
-        st.write("Average Inference Time: 120ms")
-        st.write("Model Type: CNN (placeholder)")
-        st.info("Future versions will include real-time model analytics.")
-
-    # -------------------------
-    # COMMUNITY
-    # -------------------------
-    elif selected == "Community":
-        st.subheader("Community & Leaderboard")
-
-        leaderboard = pd.DataFrame({
-            "User": ["Ebieme", "Jane", "Mike"],
-            "Points": [25, 12, 18],
-            "Badge": ["Eco Hero 🌟", "Eco Starter 🌱", "Recycler Pro 🏆"]
-        })
-
-        st.table(leaderboard)
-
-        st.write("💬 Ebieme sorted 5 plastics today")
-        st.write("💬 Jane joined the platform")
-
-    # -------------------------
-    # DEEPTECH PORTFOLIO
-    # -------------------------
-    elif selected == "DeepTech Portfolio":
-        st.subheader("DeepTech Product Portfolio")
-
-        st.markdown(
-            f"""
-            ### ♻️ AI Waste Sorter Platform
-            **Founder:** {FOUNDER}  
-            **Organization:** {POWERED_BY}
-
-            #### 🚩 Problem
-            Poor waste segregation leads to pollution, inefficient recycling, and environmental damage.
-
-            #### 💡 Solution
-            An AI-powered waste classification system using computer vision to assist
-            individuals, communities, and waste managers.
-
-            #### 🧠 Technology Stack
-            - Python
-            - Streamlit
-            - Computer Vision (CNN – placeholder)
-            - Data Analytics Dashboard
-
-            #### 💰 Monetization Strategy
-            - Licensing to waste management companies
-            - Government & NGO environmental contracts
-            - API access for smart bins
-            - Data insights & analytics services
-
-            #### 🌍 Impact
-            - Improved recycling rates
-            - Environmental sustainability
-            - Youth engagement through gamification
-
-            ---
-            **Powered by Ebiklean Global**
-            """
+    if uploaded_file:
+        waste_type = st.selectbox(
+            "Select predicted waste type (for demo purposes):",
+            ["Organic", "Plastic", "Metal", "Glass", "Paper"]
         )
 
-# =========================
-# FOOTER
-# =========================
-st.markdown(
-    "<hr><center>Powered by <b>Ebiklean Global</b></center>",
-    unsafe_allow_html=True
-)
+        if st.button("Classify Waste"):
+            st.success(f"✅ Classified as: **{waste_type}**")
+            st.session_state.scan_count += 1
+
+            scan_entry = {
+                "user": st.session_state.name,
+                "waste_type": waste_type,
+                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            }
+            st.session_state.scan_results.append(scan_entry)
+
+            # ---------------- DOWNLOADABLE REPORT ----------------
+            report_lines = [
+                "♻️ AI WASTE SORTER REPORT",
+                "Powered by Ebiklean Global",
+                f"User: {st.session_state.name}",
+                "",
+                "Scan Results:",
+            ]
+            for i, r in enumerate(st.session_state.scan_results, 1):
+                report_lines.append(f"{i}. {r['waste_type']} at {r['date']}")
+
+            report_lines.append("\nKeep sorting responsibly! 🌍")
+            report = "\n".join(report_lines)
+
+            st.download_button(
+                label="📥 Download Scan Report",
+                data=report,
+                file_name="ai_waste_scan_report.txt",
+                mime="text/plain"
+            )
+
+    st.divider()
+
+    # ---------------- DASHBOARD ----------------
+    st.subheader("📊 Waste Sorting Dashboard")
+    st.write(f"**Total Scans:** {st.session_state.scan_count}")
+    if st.session_state.scan_count > 0:
+        st.write("**Recent Scans:**")
+        for r in st.session_state.scan_results[-5:]:
+            st.write(f"- {r['waste_type']} at {r['date']}")
+
+    st.divider()
+
+    # ---------------- CHAT ----------------
+    st.subheader("💬 Ask AI Tips / Chat")
+    user_msg = st.text_input("Type your message:")
+    if st.button("Send Message"):
+        if user_msg.strip():
+            response = f"AI Tip: Here's a recycling tip for '{user_msg}'"
+            st.session_state.chat_history.append(f"You: {user_msg}")
+            st.session_state.chat_history.append(response)
+
+    for msg in st.session_state.chat_history[-10:]:
+        st.write(msg)
+
+    st.divider()
+
+    # ---------------- NOTIFICATIONS ----------------
+    st.sidebar.subheader("🔔 Notifications")
+    notifications = [
+        "Remember: Recycle plastic bottles today!",
+        "Tip: Organic waste can become compost.",
+        "New feature added: Chat with AI Tips."
+    ]
+    for note in notifications:
+        st.sidebar.info(note)
+
+    # ---------------- STORY / FEED ----------------
+    st.subheader("📖 Community Story Feed")
+    for story in st.session_state.stories[-5:]:
+        st.write(f"**{story['user']}**: {story['post']}")
+
+    st.divider()
+
+    # ---------------- INVESTOR / IMPACT ----------------
+    st.subheader("💰 Investor & Impact Overview")
+    st.write(
+        """
+        - AI-assisted waste classification improves recycling efficiency  
+        - Engaging chat & community feed increase user retention  
+        - Scalable for schools, NGOs, and recycling programs  
+        - Potential for monetization through local partnerships  
+        """
+    )
