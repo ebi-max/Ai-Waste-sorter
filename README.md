@@ -4,11 +4,12 @@ Ebiklean Global is a technology-driven initiative focused on building lightweigh
 
 All solutions are designed to run efficiently on low-resource devices and are deployable via the web using modern open-source technologies.
 
----
 
-## 🚀 AI Applications
 
-### ♻️ AI Waste Sorter
+🚀 AI APPLICATIONS 
+
+ ♻️ AI Waste Sorter
+
 An AI-powered waste classification and recycling awareness tool that helps users identify waste types and promote proper disposal practices.
 
 **Use Cases**
@@ -16,33 +17,37 @@ An AI-powered waste classification and recycling awareness tool that helps users
 - Waste management education
 - Community recycling programs
 
----
 
-### 🩺 AI Health Checker
+
+ 🩺 AI Health Checker
+
 A lightweight AI-assisted health awareness application that provides preliminary health risk insights based on symptom inputs.
 
-**Use Cases**
+USE CASES**
+
 - Health awareness campaigns
 - NGO and public health programs
 - Corporate wellness initiatives
 
 ⚠️ *This application does not provide medical diagnosis.*
 
----
 
-### 🔐 AI CyberSafe Checker
+
+ 🔐 AI CyberSafe Checker
+
 An AI-powered cybersecurity awareness tool designed to help users understand digital risks and improve safe online behavior.
 
-**Use Cases**
+**USE CASES**
+
 - Cybersecurity education
 - SME digital safety awareness
 - School and youth training programs
 
 ⚠️ *This tool provides awareness-level guidance only.*
 
----
 
-## 📊 Features Across All Apps
+
+📊 FEATURES ACROSS ALL APPS 
 
 - Mobile-friendly Streamlit interface  
 - Simple login system  
@@ -51,9 +56,9 @@ An AI-powered cybersecurity awareness tool designed to help users understand dig
 - DeepTech portfolio-ready and monetizable  
 - Lightweight and phone-compatible  
 
----
 
-## 🛠️ Technology Stack
+
+🛠️ TECHNOLOGY STACK 
 
 - Python  
 - Streamlit  
@@ -62,9 +67,9 @@ An AI-powered cybersecurity awareness tool designed to help users understand dig
 - GitHub  
 - Rule-based & AI-assisted inference  
 
----
 
-## 🎓 Certifications & Training
+
+🎓 CERTIFICATIONS & TRAINING 
 
 - **No-Code / Low-Code AI Automation Certificate**  
 - **Certificate of Participation – Microsoft Power BI Data Analyst Supported Program**  
@@ -72,26 +77,26 @@ An AI-powered cybersecurity awareness tool designed to help users understand dig
   - English for IT 1  
   - English for IT 2  
 
----
 
-## 🎓 Education
+
+ 🎓 EDUCATION 
 
 **Bachelor of Science (BSc) in Computer Science**  
 *University of the People*  
 *(In Progress)*
 
----
 
-## 💡 Monetization & Sustainability
+
+ 💡 MONETISATION & SUSTAINABILITY 
 
 - NGO and government partnerships  
 - Corporate subscriptions  
 - Training and awareness programs  
 - White-label deployment for organizations  
 
----
 
-## 👤 Founder
+
+👤 FOUNDER 
 
 **Name:** Ebieme Bassey  
 **Organization:** Ebiklean Global  
@@ -101,15 +106,17 @@ An AI-powered cybersecurity awareness tool designed to help users understand dig
 - Health Awareness  
 - Cybersecurity Education  
 
----
 
-## ⚠️ Disclaimer
+⚠️ DISCLAIMER:
 
 All applications are developed for educational, awareness, and decision-support purposes only. They do not replace professional medical, environmental, or cybersecurity services.
 
----
 
-## 🔗 Links (Add live app & repo links here)
-- AI Waste Sorter: [Link here]  
-- AI Health Checker: [Link here]  
-- AI CyberSafe Checker: [Link here]
+
+🔗 LINKS:
+
+https://cybersafe.streamlit.app
+https://ai-waste-sorter.streamlit.app/
+https://ai-health-checker.streamlit.app/
+https://phisheye.streamlit.app/
+https://redditgame.streamlit.app/
