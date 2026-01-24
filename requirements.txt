@@ -1,5 +1,5 @@
-streamlit
-pandas
-streamlit-authenticator==0.4.1
-pyyaml
-pillow
+streamlit==1.26.0
+pillow==10.1.0
+numpy==1.26.2
+pandas==2.1.1
+tensorflow==2.14.0
