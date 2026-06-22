@@ -1,5 +1,0 @@
-train/
-   train_export.py
-dataset/
-model/
-   waste_model.onnx
