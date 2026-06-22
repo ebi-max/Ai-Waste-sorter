@@ -1,0 +1,88 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP3Q1fuylE+7Rsr3aUVL46f",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ebi-max/Ai-Waste-sorter/blob/main/Model\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y3awrmvxSXVt",
+        "outputId": "ee6f7de4-5810-473c-bb9f-c1b165bb0433"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m317.2/317.2 kB\u001b[0m \u001b[31m5.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m19.1/19.1 MB\u001b[0m \u001b[31m36.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m18.7/18.7 MB\u001b[0m \u001b[31m43.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h✅ waste_model.onnx created successfully\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install -q scikit-learn skl2onnx onnx onnxruntime\n",
+        "\n",
+        "import numpy as np\n",
+        "from sklearn.linear_model import LogisticRegression\n",
+        "from skl2onnx import convert_sklearn\n",
+        "from skl2onnx.common.data_types import FloatTensorType\n",
+        "\n",
+        "# -----------------------------\n",
+        "# 1. CREATE DUMMY TRAIN DATA\n",
+        "# -----------------------------\n",
+        "X = np.random.rand(200, 128*128*3).astype(np.float32)\n",
+        "y = np.random.randint(0, 4, 200)\n",
+        "\n",
+        "# -----------------------------\n",
+        "# 2. TRAIN SIMPLE MODEL\n",
+        "# -----------------------------\n",
+        "model = LogisticRegression(max_iter=200)\n",
+        "model.fit(X, y)\n",
+        "\n",
+        "# -----------------------------\n",
+        "# 3. CONVERT TO ONNX\n",
+        "# -----------------------------\n",
+        "initial_type = [(\"input\", FloatTensorType([None, 128*128*3]))]\n",
+        "\n",
+        "onnx_model = convert_sklearn(model, initial_types=initial_type)\n",
+        "\n",
+        "# -----------------------------\n",
+        "# 4. SAVE FILE\n",
+        "# -----------------------------\n",
+        "with open(\"waste_model.onnx\", \"wb\") as f:\n",
+        "    f.write(onnx_model.SerializeToString())\n",
+        "\n",
+        "print(\"✅ waste_model.onnx created successfully\")"
+      ]
+    }
+  ]
+}
