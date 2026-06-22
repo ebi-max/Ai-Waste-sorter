@@ -1,10 +1,8 @@
-streamlit==1.37.0
+streamlit
 
-numpy==1.26.4
-pillow==10.4.0
+numpy
+pillow
 
-onnxruntime==1.18.1
+onnxruntime
 
-tensorflow==2.15.0
-
-protobuf==4.25.3
+protobuf>=4.25.0,<5
