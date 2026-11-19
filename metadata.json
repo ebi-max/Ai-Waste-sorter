@@ -1,0 +1,31 @@
+{
+    "project": "EcoSort AI",
+    "version": "1.0.0",
+    "architecture": "MobileNetV2",
+    "framework": "TensorFlow",
+    "deployment_format": "ONNX",
+    "input_shape": [
+        128,
+        128,
+        3
+    ],
+    "input_dtype": "float32",
+    "input_range": [
+        0,
+        255
+    ],
+    "preprocessing": "MobileNetV2 preprocess_input: scale to [-1, 1]",
+    "output": "Six-class softmax probabilities",
+    "classes": [
+        "cardboard",
+        "glass",
+        "metal",
+        "paper",
+        "plastic",
+        "trash"
+    ],
+    "dataset": "TrashNet",
+    "test_accuracy": 0.8,
+    "test_images": 380,
+    "onnx_prediction_match": 1.0
+}
